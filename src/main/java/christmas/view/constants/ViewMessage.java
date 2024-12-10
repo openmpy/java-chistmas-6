@@ -6,7 +6,7 @@ public enum ViewMessage {
     INPUT_ORDER_MENU("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)"),
 
     OUTPUT_WELCOME("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다."),
-    OUTPUT_EVENT_PREVIEW("12월 3일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"),
+    OUTPUT_EVENT_PREVIEW("12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"),
     OUTPUT_ORDER_MENU_HEADER("<주문 메뉴>"),
     OUTPUT_BEFORE_DISCOUNT_HEADER("<할인 전 총주문 금액>"),
     OUTPUT_BONUS_FOOD_HEADER("<증정 메뉴>"),
