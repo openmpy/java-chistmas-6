@@ -11,6 +11,7 @@ public class OrderMenus {
     public OrderMenus(List<OrderMenu> menus) {
         validateDistinct(menus);
         validateOnlyDrink(menus);
+        validateAmount(menus);
 
         this.menus = menus;
     }
@@ -36,6 +37,16 @@ public class OrderMenus {
                 .count();
 
         if (menus.size() == drinkCount) {
+            throw new InvalidOrderMenuException();
+        }
+    }
+
+    private void validateAmount(List<OrderMenu> menus) {
+        int totalAmount = menus.stream()
+                .mapToInt(OrderMenu::getAmount)
+                .sum();
+
+        if (totalAmount > 20) {
             throw new InvalidOrderMenuException();
         }
     }
