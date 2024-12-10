@@ -2,6 +2,7 @@ package christmas.domain;
 
 import christmas.domain.constants.FoodType;
 import christmas.exception.InvalidOrderMenuException;
+import christmas.utils.StringParser;
 import java.util.List;
 
 public class OrderMenus {
@@ -21,6 +22,15 @@ public class OrderMenus {
             String formatted = String.format("%s %d개", menu.getFoodName(), menu.getAmount());
             System.out.println(formatted);
         }
+    }
+
+    public void printBeforeDiscountTotalPrice() {
+        int totalPrice = menus.stream()
+                .mapToInt(it -> it.getPrice() * it.getAmount())
+                .sum();
+
+        String formatted = String.format("%s원", StringParser.formattedNumber(totalPrice));
+        System.out.println(formatted);
     }
 
     private void validateDistinct(List<OrderMenu> menus) {

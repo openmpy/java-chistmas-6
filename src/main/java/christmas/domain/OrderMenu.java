@@ -33,4 +33,8 @@ public class OrderMenu {
     public FoodType getFoodType() {
         return foodInfo.getType();
     }
+
+    public int getPrice() {
+        return foodInfo.getPrice();
+    }
 }

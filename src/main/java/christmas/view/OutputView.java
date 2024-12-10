@@ -21,4 +21,10 @@ public class OutputView {
         orderMenus.printMenus();
         System.out.println();
     }
+
+    public static void printBeforeDiscount(OrderMenus orderMenus) {
+        System.out.println(ViewMessage.OUTPUT_BEFORE_DISCOUNT_HEADER.getValue());
+        orderMenus.printBeforeDiscountTotalPrice();
+        System.out.println();
+    }
 }
