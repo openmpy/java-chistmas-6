@@ -16,11 +16,13 @@ public class Event {
     private BadgeInfo badgeInfo = null;
 
     public Event(VisitDate visitDate, OrderMenus orderMenus) {
-        checkBonusMenu(orderMenus.getTotalPrice());
-        checkChristmasDiscount(visitDate.getDate());
-        checkDayDiscount(visitDate.getDate(), orderMenus);
-        checkSpecialDiscount(visitDate.getDate());
-        checkBadge(getTotalDiscountPrice());
+        if (orderMenus.getTotalPrice() > 10000) {
+            checkBonusMenu(orderMenus.getTotalPrice());
+            checkChristmasDiscount(visitDate.getDate());
+            checkDayDiscount(visitDate.getDate(), orderMenus);
+            checkSpecialDiscount(visitDate.getDate());
+            checkBadge(getTotalDiscountPrice());
+        }
     }
 
     public void printBonusMenu() {
@@ -47,6 +49,11 @@ public class Event {
     }
 
     public void printTotalDiscountPrice() {
+        if (getTotalDiscountPrice() == 0) {
+            System.out.println("0원");
+            return;
+        }
+
         String formattedNumber = StringParser.formattedNumber(getTotalDiscountPrice());
         String formatted = String.format("-%s원", formattedNumber);
         System.out.println(formatted);
