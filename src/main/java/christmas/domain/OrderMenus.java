@@ -25,10 +25,7 @@ public class OrderMenus {
     }
 
     public void printBeforeDiscountTotalPrice() {
-        int totalPrice = menus.stream()
-                .mapToInt(it -> it.getPrice() * it.getAmount())
-                .sum();
-
+        int totalPrice = getTotalPrice();
         String formatted = String.format("%s원", StringParser.formattedNumber(totalPrice));
         System.out.println(formatted);
     }
@@ -63,5 +60,18 @@ public class OrderMenus {
 
     public List<OrderMenu> getMenus() {
         return menus;
+    }
+
+    public int getTotalPrice() {
+        return menus.stream()
+                .mapToInt(it -> it.getPrice() * it.getAmount())
+                .sum();
+    }
+
+    public int getTotalFoodTypeCount(FoodType type) {
+        return menus.stream()
+                .filter(it -> it.getFoodType().equals(type))
+                .mapToInt(OrderMenu::getAmount)
+                .sum();
     }
 }
