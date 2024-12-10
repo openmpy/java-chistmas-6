@@ -31,7 +31,10 @@ public class OrderMenus {
     }
 
     private void validateDistinct(List<OrderMenu> menus) {
-        long count = menus.stream().distinct().count();
+        long count = menus.stream()
+                .map(OrderMenu::getFoodName)
+                .distinct()
+                .count();
 
         if (menus.size() != count) {
             throw new InvalidOrderMenuException();
