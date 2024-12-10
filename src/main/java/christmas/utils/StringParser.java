@@ -2,6 +2,7 @@ package christmas.utils;
 
 import christmas.domain.OrderMenu;
 import christmas.exception.InvalidOrderMenuException;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class StringParser {
@@ -15,5 +16,10 @@ public class StringParser {
         } catch (RuntimeException e) {
             throw new InvalidOrderMenuException();
         }
+    }
+
+    public static String formattedNumber(int number) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        return numberFormat.format(number);
     }
 }
