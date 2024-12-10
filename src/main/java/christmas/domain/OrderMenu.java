@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import christmas.domain.constants.FoodInfo;
+import christmas.domain.constants.FoodType;
 import christmas.exception.InvalidOrderMenuException;
 
 public class OrderMenu {
@@ -27,5 +28,9 @@ public class OrderMenu {
 
     public int getAmount() {
         return amount;
+    }
+
+    public FoodType getFoodType() {
+        return foodInfo.getType();
     }
 }
